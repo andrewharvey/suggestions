@@ -144,14 +144,6 @@ Suggestions.prototype.match = function(candidate, query) {
 Suggestions.prototype.value = function(value) {
   this.selected = value;
   this.el.value = this.getItemValue(value);
-
-  if (document.createEvent) {
-    var e = document.createEvent('HTMLEvents');
-    e.initEvent('change', true, false);
-    this.el.dispatchEvent(e);
-  } else {
-    this.el.fireEvent('onchange');
-  }
 };
 
 Suggestions.prototype.getCandidates = function(callback) {
